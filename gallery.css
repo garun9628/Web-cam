@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.back {
+  margin: 1rem;
+  background-color: rgb(151, 235, 211);
+  height: 2rem;
+  width: 4rem;
+  color: rgb(38, 35, 35);
+  border-radius: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.back:hover {
+  cursor: pointer;
+}

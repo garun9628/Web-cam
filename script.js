@@ -13,7 +13,7 @@ let constraints = {
   audio: true,
 };
 
-// navigator => global, browser info
+//navigator => global, browser info
 navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
   video.srcObject = stream;
 
@@ -27,11 +27,22 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
   recorder.addEventListener("stop", (e) => {
     // conversion of media chunks data to video
     let blob = new Blob(chunks, { type: "video/mp4" });
-    let videoUrl = window.URL.createObjectURL(blob);
-    let a = document.createElement("a");
-    a.href = videoUrl;
-    a.download = "stream.mp4";
-    a.click();
+
+    if (db) {
+      let videoId = new ShortUniqueId();
+      let dbTransaction = db.transaction(["video"], "readwrite");
+      let videoStore = dbTransaction.objectStore("video");
+      let videoEntry = {
+        id: `video-${videoId()}`,
+        blobData: blob,
+      };
+      videoStore.add(videoEntry);
+    }
+    // let videoUrl = window.URL.createObjectURL(blob);
+    // let a = document.createElement("a");
+    // a.href = videoUrl;
+    // a.download = "stream.mp4";
+    // a.click();
   });
 });
 
@@ -65,10 +76,22 @@ captureBtnContainer.addEventListener("click", (e) => {
   tool.fillRect(0, 0, canvas.width, canvas.height);
 
   let imageUrl = canvas.toDataURL();
-  let a = document.createElement("a");
-  a.href = imageUrl;
-  a.download = "image.jpg";
-  a.click();
+
+  if (db) {
+    let imageId = new ShortUniqueId();
+    let dbTransaction = db.transaction("image", "readwrite");
+    let imageStore = dbTransaction.objectStore("image");
+    let imageEntry = {
+      id: `img-${imageId()}`,
+      blobData: imageUrl,
+    };
+    imageStore.add(imageEntry);
+  }
+
+  // let a = document.createElement("a");
+  // a.href = imageUrl;
+  // a.download = "image.jpg";
+  // a.click();
 });
 
 let timerId;

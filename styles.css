@@ -1,130 +1,142 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .video-container {
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
 }
 
 video {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .action-container {
-    height: 13rem;
-    width: 4rem;
-    position: absolute;
-    top: calc((100vh - 13rem) / 2);
-    right: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 2;
+  height: 13rem;
+  width: 4rem;
+  position: absolute;
+  top: calc((100vh - 13rem) / 2);
+  right: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
 }
 
 .action-container > * {
-    width: 100%;
-    height: 4rem;
-    border-radius: 50%;
-    border: 2.5px solid rgb(221, 217, 216);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2.5px solid rgb(221, 217, 216);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .record-btn {
-    background-color: rgb(210, 60, 60);
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
+  background-color: rgb(210, 60, 60);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
 }
 .capture-btn {
-    background-color: rgb(235, 223, 223);
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
+  background-color: rgb(235, 223, 223);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
 }
 .scale-record {
-    animation-name: scale-record;
-    animation-iteration-count: infinite;
-    animation-duration: 1s;
+  animation-name: scale-record;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
 }
 .scale-capture {
-    animation-name: scale-capture;
-    animation-iteration-count: 1;
-    animation-duration: 1s;
+  animation-name: scale-capture;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
 }
 
 @keyframes scale-record {
-    0% {
-        transform: scale(0.8);
-    }
-    100% {
-        transform: scale(1.1);
-    }
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 @keyframes scale-capture {
-    0% {
-        transform: scale(0.8);
-    }
-    100% {
-        transform: scale(1.1);
-    }
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 .timer-container {
-    position: absolute;
-    bottom: 10rem;
-    left: 5rem;
-    color: aqua;
-    font-size: 0.8rem;
+  position: absolute;
+  bottom: 10rem;
+  left: 5rem;
+  color: aqua;
+  font-size: 0.8rem;
 }
 .timer {
-    display: none;
+  display: none;
 }
 
 .filter-container {
-    position: absolute;
-    top: calc((100vh - 16rem) / 2);
-    left: 5rem;
-    background-color: aqua;
-    height: 16rem;
-    width: 5rem;
-    z-index: 2;
+  position: absolute;
+  top: calc((100vh - 16rem) / 2);
+  left: 5rem;
+  background-color: aqua;
+  height: 16rem;
+  width: 5rem;
+  z-index: 2;
 }
 .filter {
-    height: 4rem;
-    background-image: url(https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-blend-mode: color-burn;
+  height: 4rem;
+  background-image: url(https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-blend-mode: color-burn;
 }
 .orange {
-    background-color: rgba(210, 234, 232, 0.411);
+  background-color: rgba(210, 234, 232, 0.411);
 }
 .brown {
-    background-color: rgba(237, 218, 211, 0.467);
+  background-color: rgba(237, 218, 211, 0.467);
 }
 .pink {
-    background-color: rgba(238, 184, 184, 0.315);
+  background-color: rgba(238, 184, 184, 0.315);
 }
 .transparent {
-    background-color: transparent;
+  background-color: transparent;
 }
 .filter-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
 
-
+.material-symbols-outlined {
+  color: rgb(173, 205, 207);
+  font-size: 3.5rem;
+}
+.gallery {
+  position: absolute;
+  right: 5rem;
+  top: 9.5rem;
+  z-index: 3;
+}
+.gallery:hover {
+  cursor: pointer;
+}
