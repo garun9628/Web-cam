@@ -33,16 +33,11 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
       let dbTransaction = db.transaction(["video"], "readwrite");
       let videoStore = dbTransaction.objectStore("video");
       let videoEntry = {
-        id: `video-${videoId()}`,
+        id: `vid-${videoId()}`,
         blobData: blob,
       };
       videoStore.add(videoEntry);
     }
-    // let videoUrl = window.URL.createObjectURL(blob);
-    // let a = document.createElement("a");
-    // a.href = videoUrl;
-    // a.download = "stream.mp4";
-    // a.click();
   });
 });
 
@@ -64,6 +59,7 @@ recordBtnContainer.addEventListener("click", (e) => {
 });
 
 captureBtnContainer.addEventListener("click", (e) => {
+  captureBtn.classList.add("scale-capture");
   let canvas = document.createElement("canvas");
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -83,15 +79,13 @@ captureBtnContainer.addEventListener("click", (e) => {
     let imageStore = dbTransaction.objectStore("image");
     let imageEntry = {
       id: `img-${imageId()}`,
-      blobData: imageUrl,
+      url: imageUrl,
     };
     imageStore.add(imageEntry);
   }
-
-  // let a = document.createElement("a");
-  // a.href = imageUrl;
-  // a.download = "image.jpg";
-  // a.click();
+  setTimeout(() => {
+    captureBtn.classList.remove("scale-capture");
+  }, 500);
 });
 
 let timerId;

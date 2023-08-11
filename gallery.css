@@ -9,15 +9,52 @@ body {
 
 .back {
   margin: 1rem;
-  background-color: rgb(151, 235, 211);
+  position: fixed;
+  font-size: xx-large;
+}
+.back:hover {
+  cursor: pointer;
+}
+
+.gallery-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #ced6e0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.media-container {
+  height: 15rem;
+  width: 15rem;
+  border: 5px solid burlywood;
+  background-color: aqua;
+  margin: 2rem;
+}
+.media {
+  background-color: blueviolet;
+  height: calc(100% - 2rem - 2rem);
+}
+
+.media > * {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+.action-btn {
   height: 2rem;
-  width: 4rem;
-  color: rgb(38, 35, 35);
-  border-radius: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.back:hover {
+.action-btn:hover {
   cursor: pointer;
+}
+
+.download {
+  background-color: antiquewhite;
+}
+.delete {
+  background-color: azure;
 }
